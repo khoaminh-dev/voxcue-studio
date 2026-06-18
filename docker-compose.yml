@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   voxcue-studio:
-    build: .
+    image: ghcr.io/khoaminh-dev/voxcue-studio:latest
     container_name: voxcue-studio
     restart: unless-stopped
     networks:
@@ -10,7 +10,7 @@ services:
     labels:
       - "traefik.enable=true"
       # Router settings
-      - "traefik.http.routers.voxcue-studio.rule=Host(`voxcue.bkuteam.site`)"
+      - "traefik.http.routers.voxcue-studio.rule=Host(`studio.bkuteam.site`)"
       - "traefik.http.routers.voxcue-studio.entrypoints=websecure"
       - "traefik.http.routers.voxcue-studio.tls.certresolver=letsencrypt" # Adjust to match your SANKIT Traefik config
       # Service settings
