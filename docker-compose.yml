@@ -6,7 +6,7 @@ services:
     container_name: voxcue-studio
     restart: unless-stopped
     networks:
-      - traefik_network
+      - proxy
     labels:
       - "traefik.enable=true"
       # Router settings
@@ -17,5 +17,5 @@ services:
       - "traefik.http.services.voxcue-studio.loadbalancer.server.port=80"
       
 networks:
-  traefik_network:
-    external: true # Adjust to match your existing Traefik network name
+  proxy:
+    external: true
